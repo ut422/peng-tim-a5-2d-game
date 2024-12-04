@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="peng-tim-a5-2d-game"
+run/main_scene="res://scenes/pong_2d_game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
 
 [dotnet]
 
