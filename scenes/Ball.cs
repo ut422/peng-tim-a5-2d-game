@@ -32,3 +32,25 @@ public partial class Ball : RigidBody2D
         }
     }
 
+    private void ResetBall()
+    {
+        // debug print to check the parent node
+        GD.Print("Parent of Ball: ", GetParent().Name);
+
+        // safely try to get the BallStart node
+        var ballStartNode = GetParent().GetNodeOrNull<Node2D>("BallStart");
+
+        // if the BallStart node is not found, print an error and exit
+        if (ballStartNode == null)
+        {
+            GD.PrintErr("BallStart node not found! Please ensure it exists in the scene.");
+            return; // exit the method if BallStart is missing
+        }
+
+        // set the ball's position to that of the BallStart node
+        Position = ballStartNode.Position;
+
+        // initialize the ball's velocity moving to the right with the specified speed
+        _velocity = new Vector2(Speed, 0);
+    }
+}
