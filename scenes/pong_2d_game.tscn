@@ -41,12 +41,12 @@ script = ExtResource("1_lkpbo")
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle1/RigidBody2D"]
 position = Vector2(56, 88)
-scale = Vector2(0.05, 0.5)
+scale = Vector2(0.05, 0.315)
 texture = ExtResource("1_c5jdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle1/RigidBody2D"]
 position = Vector2(56, 88)
-scale = Vector2(1.5, 15)
+scale = Vector2(1.5, 10)
 shape = SubResource("RectangleShape2D_y3nfx")
 
 [node name="Paddle2" type="Node2D" parent="."]
@@ -59,12 +59,12 @@ script = ExtResource("3_vahle")
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle2/RigidBody2D"]
 position = Vector2(56, 88)
-scale = Vector2(0.05, 0.5)
+scale = Vector2(0.05, 0.315)
 texture = ExtResource("1_c5jdj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle2/RigidBody2D"]
 position = Vector2(56, 88)
-scale = Vector2(1.5, 15)
+scale = Vector2(1.5, 10)
 shape = SubResource("RectangleShape2D_y3nfx")
 
 [node name="Ball" type="Node2D" parent="."]
