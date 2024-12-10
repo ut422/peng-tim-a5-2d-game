@@ -25,5 +25,8 @@ public partial class Paddle1 : RigidBody2D
 
         // move the paddle
         MoveAndCollide(_velocity * (float)delta);
+
+        // lock horizontal position by overriding the x position
+        Position = new Vector2(Position.X, Position.Y);
     }
 }

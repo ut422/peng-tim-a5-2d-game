@@ -56,7 +56,6 @@ position = Vector2(584, 16)
 position = Vector2(80, 200)
 collision_layer = 3
 script = ExtResource("3_vahle")
-Speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Paddle2/RigidBody2D"]
 position = Vector2(56, 88)
