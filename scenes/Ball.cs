@@ -51,6 +51,6 @@ public partial class Ball : RigidBody2D
         Position = ballStartNode.Position;
 
         // initialize the ball's velocity moving to the right with the specified speed
-        _velocity = new Vector2(Speed, 200);
+        _velocity = new Vector2(Speed, 100);
     }
 }
