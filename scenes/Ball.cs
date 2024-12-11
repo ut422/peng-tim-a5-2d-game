@@ -32,6 +32,7 @@ public partial class Ball : RigidBody2D
         }
     }
 
+
     private void ResetBall()
     {
         // debug print to check the parent node

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkleey2iljgjc"]
+[gd_scene load_steps=11 format=3 uid="uid://dkleey2iljgjc"]
 
 [ext_resource type="Texture2D" uid="uid://b41gskbqagtk2" path="res://hell naw.png" id="1_c5jdj"]
 [ext_resource type="Script" path="res://scenes/Paddle1.cs" id="1_lkpbo"]
 [ext_resource type="Script" path="res://scenes/Ball.cs" id="2_bp6xu"]
 [ext_resource type="Script" path="res://scenes/Paddle2.cs" id="3_vahle"]
+[ext_resource type="Script" path="res://scenes/Goal.cs" id="5_0ct5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3nfx"]
 
@@ -29,6 +30,8 @@ public partial class Floor : Node2D
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0yyk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32bbh"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Paddle1" type="Node2D" parent="."]
@@ -50,7 +53,7 @@ scale = Vector2(1.5, 10)
 shape = SubResource("RectangleShape2D_y3nfx")
 
 [node name="Paddle2" type="Node2D" parent="."]
-position = Vector2(584, 16)
+position = Vector2(584, 120)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Paddle2"]
 position = Vector2(80, 200)
@@ -73,6 +76,7 @@ position = Vector2(384, 296)
 [node name="BallStart" type="Node2D" parent="Ball"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Ball"]
+collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("2_bp6xu")
 
@@ -88,6 +92,7 @@ shape = SubResource("CircleShape2D_6lbbk")
 script = SubResource("CSharpScript_l0p1v")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="floor"]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
 position = Vector2(400, 0)
@@ -98,6 +103,7 @@ shape = SubResource("RectangleShape2D_m0yyk")
 position = Vector2(0, 600)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="floor2"]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor2/StaticBody2D"]
 position = Vector2(400, 0)
@@ -107,21 +113,26 @@ shape = SubResource("RectangleShape2D_m0yyk")
 [node name="goal" type="Node2D" parent="."]
 position = Vector2(-72, 472)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="goal"]
+[node name="Area2D" type="Area2D" parent="goal"]
+collision_layer = 2
+script = ExtResource("5_0ct5k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal/Area2D"]
 position = Vector2(72, -176)
-rotation = 1.5708
-scale = Vector2(31, 1)
-shape = SubResource("RectangleShape2D_m0yyk")
+scale = Vector2(1, 30)
+shape = SubResource("RectangleShape2D_32bbh")
 
 [node name="goal2" type="Node2D" parent="."]
-position = Vector2(728, 480)
+position = Vector2(728, 472)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="goal2"]
+[node name="Area2D" type="Area2D" parent="goal2"]
+collision_layer = 2
+script = ExtResource("5_0ct5k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal2/Area2D"]
 position = Vector2(72, -176)
-rotation = 1.5708
-scale = Vector2(31, 1)
-shape = SubResource("RectangleShape2D_m0yyk")
+scale = Vector2(1, 30)
+shape = SubResource("RectangleShape2D_32bbh")
+
+[connection signal="body_entered" from="goal/Area2D" to="goal/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="goal2/Area2D" to="goal2/Area2D" method="_on_body_entered"]
