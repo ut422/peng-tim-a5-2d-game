@@ -134,5 +134,15 @@ position = Vector2(72, -176)
 scale = Vector2(1, 30)
 shape = SubResource("RectangleShape2D_32bbh")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 40.0
+offset_right = 536.0
+offset_bottom = 168.0
+text = "left player: W/S
+right player: Up Down arrow keys
+game instantly ends when one player 
+cannot return the ball to other player"
+
 [connection signal="body_entered" from="goal/Area2D" to="goal/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="goal2/Area2D" to="goal2/Area2D" method="_on_body_entered"]
