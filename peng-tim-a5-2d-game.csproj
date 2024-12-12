@@ -7,6 +7,6 @@
     <RootNamespace>pengtima52dgame</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="process-work\wip process work.pdf" />
+    <None Include="process-work\process work.pdf" />
   </ItemGroup>
 </Project>
